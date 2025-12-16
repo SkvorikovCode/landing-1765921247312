@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Torexxx Creator - Революционная платформа для генерации веб-приложений с ИИ. Аналог Bolt и Lovable с мощью Cursor AI.">
+    <title>Torexxx Creator | ИИ-Генератор Full-Stack Проектов</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#ec4899',
+                        dark: '#0f172a',
+                        darker: '#020617',
+                        surface: '#1e293b'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-darker text-white overflow-x-hidden selection:bg-primary selection:text-white font-sans">
+
+    <!-- Navigation -->
+    <header class="fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-md border-b border-white/5 bg-darker/80" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="relative w-10 h-10 flex items-center justify-center bg-gradient-to-tr from-primary to-secondary rounded-xl overflow-hidden group-hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] transition-all">
+                        <i data-lucide="cpu" class="text-white w-6 h-6"></i>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight">Torexxx<span class="text-primary">Creator</span></span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#features" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">Возможности</a>
+                    <a href="#how-it-works" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">Как это работает</a>
+                    <a href="#ide-mode" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">IDE Режим</a>
+                    <a href="#pricing" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">Тарифы</a>
+                </nav>
+
+                <!-- CTA & Mobile Menu -->
+                <div class="flex items-center gap-4">
+                    <a href="#" class="hidden md:flex items-center gap-2 px-5 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg transition-all text-sm font-medium">
+                        <i data-lucide="log-in" class="w-4 h-4"></i> Войти
+                    </a>
+                    <a href="#" class="px-5 py-2.5 bg-gradient-to-r from-primary to-secondary hover:opacity-90 rounded-lg text-white text-sm font-semibold shadow-lg shadow-primary/25 transition-all flex items-center gap-2">
+                        Начать бесплатно <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    </a>
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-white">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="md:hidden hidden bg-surface border-t border-white/5 absolute w-full left-0">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#features" class="block px-4 py-2 text-gray-300 hover:bg-white/5 rounded-lg">Возможности</a>
+                <a href="#how-it-works" class="block px-4 py-2 text-gray-300 hover:bg-white/5 rounded-lg">Как это работает</a>
+                <a href="#ide-mode" class="block px-4 py-2 text-gray-300 hover:bg-white/5 rounded-lg">IDE Режим</a>
+                <a href="#pricing" class="block px-4 py-2 text-gray-300 hover:bg-white/5 rounded-lg">Тарифы</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex flex-col justify-center pt-32 pb-20 overflow-hidden">
+            <!-- Background Gradients -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/20 rounded-full blur-[120px] -z-10 animate-pulse-slow"></div>
+            <div class="absolute bottom-0 right-0 w-[800px] h-[600px] bg-secondary/10 rounded-full blur-[120px] -z-10"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8 animate-fade-in-up">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                    </span>
+                    <span class="text-sm text-gray-300">Доступен публичный бета-тест v2.0</span>
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight animate-fade-in-up delay-100">
+                    От идеи до <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-secondary">Production</span><br>
+                    за считанные секунды
+                </h1>
+
+                <p class="text-xl text-gray-400 mb-10 max-w-3xl mx-auto animate-fade-in-up delay-200">
+                    Torexxx Creator — это не просто чат. Это полноценная среда разработки с ИИ-архитектором. Генерируйте полные стеки приложений, как в Bolt, и редактируйте код с точностью Windsurf.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in-up delay-300">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-lg blur opacity-40 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                        <a href="#" class="relative flex items-center gap-2 px-8 py-4 bg-darker border border-white/10 rounded-lg leading-none text-white font-semibold group-hover:bg-dark transition-all">
+                            <i data-lucide="zap" class="w-5 h-5 text-yellow-400"></i>
+                            Создать проект
+                        </a>
+                    </div>
+                    <a href="#demo" class="flex items-center gap-2 px-8 py-4 bg-surface/50 hover:bg-surface border border-white/10 rounded-lg text-white font-semibold transition-all backdrop-blur-sm">
+                        <i data-lucide="play-circle" class="w-5 h-5"></i>
+                        Смотреть демо
+                    </a>
+                </div>
+
+                <!-- Interactive IDE Mockup -->
+                <div class="relative max-w-5xl mx-auto rounded-xl border border-white/10 shadow-2xl bg-[#0d1117] overflow-hidden animate-fade-in-up delay-500" id="demo">
+                    <!-- Top Bar -->
+                    <div class="flex items-center justify-between px-4 py-3 bg-[#161b22] border-b border-white/5">
+                        <div class="flex gap-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                        </div>
+                        <div class="text-xs text-gray-500 font-mono">torexxx-project/src/App.tsx</div>
+                        <div class="flex gap-4 text-gray-400">
+                            <i data-lucide="layout" class="w-4 h-4"></i>
+                            <i data-lucide="sidebar" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+
+                    <!-- IDE Content Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 h-[400px] md:h-[500px]">
+                        <!-- Sidebar -->
+                        <div class="hidden md:block col-span-2 border-r border-white/5 bg-[#0d1117] p-4 text-sm font-mono text-gray-500">
+                            <div class="flex items-center gap-2 text-white mb-2"><i data-lucide="folder" class="w-4 h-4 text-blue-400"></i> src</div>
+                            <div class="pl-4 space-y-2">
+                                <div class="flex items-center gap-2 hover:text-white cursor-pointer"><i data-lucide="file-code" class="w-4 h-4"></i> components</div>
+                                <div class="flex items-center gap-2 text-primary bg-primary/10 p-1 rounded cursor-pointer"><i data-lucide="file-code" class="w-4 h-4"></i> App.tsx</div>
+                                <div class="flex items-center gap-2 hover:text-white cursor-pointer"><i data-lucide="file-code" class="w-4 h-4"></i> main.tsx</div>
+                                <div class="flex items-center gap-2 hover:text-white cursor-pointer"><i data-lucide="file-json" class="w-4 h-4"></i> package.json</div>
+                            </div>
+                        </div>
+
+                        <!-- Code Area -->
+                        <div class="col-span-12 md:col-span-6 p-6 font-mono text-sm overflow-hidden bg-[#0d1117] text-left relative">
+                            <div class="absolute top-0 right-0 p-2">
+                                <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded">AI Generating...</span>
+                            </div>
+                            <div class="text-gray-400 mb-2">// Describe your app in the prompt below</div>
+                            <div class="typewriter-code text-blue-300">
+                                <span class="text-purple-400">import</span> React <span class="text-purple-400">from</span> 'react';<br>
+                                <span class="text-purple-400">import</span> { Button } <span class="text-purple-400">from</span> './components/ui';<br>
+                                <br>
+                                <span class="text-purple-400">export default function</span> <span class="text-yellow-300">App</span>() {<br>
+                                &nbsp;&nbsp;<span class="text-purple-400">return</span> (<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="text-red-400">div</span> <span class="text-green-400">className</span>="min-h-screen bg-black"&gt;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="text-yellow-300">Hero</span> /&gt;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="text-yellow-300">Features</span> /&gt;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="text-red-400">div</span>&gt;<br>
+                                &nbsp;&nbsp;);<br>
+                                }
+                            </div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <div class="flex items-center gap-2 bg-[#1c2128] border border-white/10 rounded-lg p-2 shadow-lg">
+                                    <div class="w-8 h-8 rounded bg-primary/20 flex items-center justify-center">
+                                        <i data-lucide="sparkles" class="w-4 h-4 text-primary"></i>
+                                    </div>
+                                    <span class="text-gray-400 text-xs md:text-sm" id="typing-prompt">Добавь темную тему и анимацию при скролле...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Preview Area -->
+                        <div class="hidden md:block col-span-4 border-l border-white/5 bg-white overflow-hidden relative">
+                            <!-- Mock Website Preview -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-indigo-900 to-black p-4 flex flex-col items-center justify-center text-center">
+                                <div class="w-16 h-16 bg-white/10 rounded-full mb-4 animate-bounce flex items-center justify-center backdrop-blur-md">
+                                    <i data-lucide="rocket" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h3 class="text-white font-bold text-xl mb-2">Startup Ready</h3>
+                                <p class="text-white/60 text-xs">Live Preview updates instantly as you generate code.</p>
+                                <button class="mt-4 px-4 py-2 bg-white text-indigo-900 rounded-full text-xs font-bold hover:scale-105 transition-transform">Get Started</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section id="features" class="py-24 bg-surface/30 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Больше, чем просто генератор</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">Torexxx объединяет простоту промптинга с мощью профессиональной IDE.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/50 transition-all hover:-translate-y-1 duration-300">
+                        <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="bot" class="w-6 h-6 text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Умная Генерация</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Опишите идею на естественном языке. Наш ИИ создаст файловую структуру, установит зависимости и напишет чистый код.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-purple-500/50 transition-all hover:-translate-y-1 duration-300">
+                        <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="terminal-square" class="w-6 h-6 text-purple-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Встроенная IDE</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Не нужно экспортировать код, чтобы внести правки. Полноценный редактор кода с подсветкой синтаксиса уже встроен в браузер.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-pink-500/50 transition-all hover:-translate-y-1 duration-300">
+                        <div class="w-12 h-12 bg-pink-500/10 rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="rocket" class="w-6 h-6 text-pink-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Deploy в 1 клик</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Ваше приложение сразу доступно по ссылке. Мы берем на себя хостинг, CI/CD и настройку домена.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IDE Comparison Section -->
+        <section id="ide-mode" class="py-24 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-darker to-surface opacity-50"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6 uppercase tracking-wider">
+                            Pro Mode
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                            Контроль уровня <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">Cursor & Windsurf</span>
+                        </h2>
+                        <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                            Большинство AI-билдеров теряются, когда проект становится сложным. Torexxx Creator переключается в режим IDE, давая вам полный контроль над файловой системой, терминалом и пакетами.
+                        </p>
+                        
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-400"></i>
+                                <span class="text-gray-300">Прямой доступ к npm/yarn</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-400"></i>
+                                <span class="text-gray-300">Интеллектуальный автокомплит кода</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-400"></i>
+                                <span class="text-gray-300">Отладка в реальном времени</span>
+                            </li>
+                        </ul>
+
+                        <div class="mt-10">
+                            <a href="#" class="text-white border-b border-primary pb-1 hover:text-primary transition-colors">Читать документацию -></a>
+                        </div>
+                    </div>
+
+                    <!-- Visual Representation -->
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-primary via-purple-500 to-secondary rounded-2xl blur-lg opacity-30"></div>
+                        <div class="relative bg-darker rounded-xl border border-white/10 p-1">
+                            <img src="https://placehold.co/800x600/0f172a/6366f1?text=IDE+Interface+Preview" alt="IDE Interface" class="rounded-lg w-full shadow-2xl">
+                            
+                            <!-- Floating Badge -->
+                            <div class="absolute -bottom-6 -left-6 bg-surface border border-white/10 p-4 rounded-xl shadow-xl flex items-center gap-4 animate-float">
+                                <div class="bg-green-500/20 p-3 rounded-lg">
+                                    <i data-lucide="code-2" class="w-6 h-6 text-green-400"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-400">Code Quality</div>
+                                    <div class="text-xl font-bold text-white">100% Clean</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-16 border-y border-white/5 bg-white/[0.02]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="text-4xl font-bold text-white mb-2">10k+</div>
+                        <div class="text-gray-500 text-sm uppercase tracking-wider">Проектов создано</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-white mb-2">2M+</div>
+                        <div class="text-gray-500 text-sm uppercase tracking-wider">Строк кода</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-white mb-2">0.5s</div>
+                        <div class="text-gray-500 text-sm uppercase tracking-wider">Время отклика</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-white mb-2">24/7</div>
+                        <div class="text-gray-500 text-sm uppercase tracking-wider">AI Ассистент</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 relative overflow-hidden">
+            <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6">Готовы создать что-то великое?</h2>
+                <p class="text-xl text-gray-400 mb-10">Присоединяйтесь к тысячам разработчиков, которые уже используют Torexxx Creator для своих стартапов.</p>
+                
+                <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+                    <input type="email" placeholder="Ваш email" class="flex-1 px-6 py-4 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                    <button type="button" class="px-8 py-4 bg-white text-darker font-bold rounded-lg hover:bg-gray-200 transition-all transform hover:scale-105">
+                        Получить доступ
+                    </button>
+                </form>
+                <p class="mt-4 text-sm text-gray-500">14 дней пробный период. Кредитная карта не требуется.</p>
+            </div>
+            
+            <!-- Footer BG Decoration -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1200px] h-[400px] bg-gradient-to-r from-primary/10 to-secondary/10 blur-[100px] -z-10"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-darker pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-2 md:col-span-1">
+                    <a href="#" class="flex items-center gap-2 mb-4">
+                        <i data-lucide="cpu" class="text-primary w-6 h-6"></i>
+                        <span class="text-xl font-bold">Torexxx</span>
+                    </a>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Платформа нового поколения для быстрой разработки веб-приложений с использованием искусственного интеллекта.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Продукт</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">Возможности</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Интеграции</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Цены</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Changelog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Ресурсы</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">Документация</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Сообщество</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Блог</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Помощь</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Компания</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">О нас</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Карьера</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-sm text-gray-600">
+                    &copy; 2025 Torexxx Creator. Все права защищены.
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
